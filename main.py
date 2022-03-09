@@ -1,12 +1,12 @@
 import csv
-import pandas
 import sqlite3
+import pandas
 from os import listdir
 from os.path import isfile, join
 import sqlalchemy
 import config
 
-cdr_table_name = 'cdr_table'
+cdr_table_name = 'cdr.table'
 cmr_table_name = 'cmr_table'
 CDR = 'CDR'
 
@@ -39,7 +39,7 @@ def main():
                     df.to_sql(table_name, con, if_exists='append', index=False)
                 except Exception as err:
                     print(err)
-
+                aa = session.query(cmr_table_name).first()
 
 
 if __name__ == "__main__":
